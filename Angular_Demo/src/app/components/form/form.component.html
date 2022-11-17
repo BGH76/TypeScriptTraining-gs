@@ -1,12 +1,27 @@
 <div class="form">
-    <form>
-        <div class="fields">
-            <label>Firstname</label>
-            <input class="input-item" type="text"/>
+    <form [formGroup]="mainform" (ngSubmit)="submit()">
+        <div class="header">
+            {{title}}
         </div>
         <div class="fields">
-            <label>Password</label>
-            <input class="input-item" type="password"/>
+            <label>First Name</label>
+            <input class="input-item" type="text" formControlName="firstname"/>
+            <span class="error" *ngIf="firstname?.invalid && firstname?.touched">*First Name required</span>
+        </div>
+        <div class="fields">
+            <label>Last Name</label>
+            <input class="input-item" type="text" formControlName="lastname"/>
+            <span class="error" *ngIf="lastname?.invalid && lastname?.touched">*Last Name required</span>
+        </div>
+        <div class="fields">
+            <label>Email</label>
+            <input class="input-item" type="text" formControlName="email"/>
+            <span class="error" *ngIf="email?.invalid && email?.touched">*Email required</span>
+        </div>
+        <div class="fields">
+            <label>Age</label>
+            <input class="input-item" type="text" formControlName="age"/>
+            <span class="error" *ngIf="age?.invalid && age?.touched">*Age required</span>
         </div>
         <button>Submit</button>
     </form>
